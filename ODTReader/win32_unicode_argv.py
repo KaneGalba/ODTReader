@@ -14,6 +14,12 @@ be a list of Unicode strings.
 
 import sys
 
+#PY3 changed range to xrange
+try:
+	range=xrange
+except NameError:
+	pass
+
 def win32_unicode_argv():
     """Uses shell32.GetCommandLineArgvW to get sys.argv as a list of Unicode
     strings.
@@ -41,6 +47,6 @@ def win32_unicode_argv():
         # Remove Python executable and commands if present
         start = argc.value - len(sys.argv)
         return [argv[i] for i in
-                xrange(start, argc.value)]
+                range(start, argc.value)]
 
 sys.argv = win32_unicode_argv()

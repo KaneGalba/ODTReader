@@ -21,7 +21,7 @@ def odtToText(odtPath):
 			with odtArchive.open(u'content.xml') as f:
 				odtContent = f.read()
 		except Exception as e:
-			print "Could not find 'content.xml': {}".format(str(e))
+			print("Could not find 'content.xml': {}".format(str(e)))
 			return
 		
 		root = ET.fromstring(odtContent)
@@ -39,9 +39,9 @@ if __name__ == "__main__":
 	parser.add_argument("-o", "--out", help="If the output is to be written to a file, path to the file (otherwise STDOUT is used)")
 	args = parser.parse_args()
 	
-	output = odtToText(args.odtPath).encode("utf-8")
+	output = odtToText(args.odtPath)
 	if args.out:
 		with open(args.out, "w") as outFile:
 			outFile.write(output)
 	else:
-		print output
+		print(output)

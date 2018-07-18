@@ -47,7 +47,7 @@ It can also be used as a command line utility.
 Version Support
 ===============
 
-This module only supports Python 2.7 as of now.
+This module was tested on Python 2.7 and 3.6 as of now, although later versions should hopefully work.
 
 
 License
